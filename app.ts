@@ -48,6 +48,7 @@ export const getBackground = async (
 
     const background = (await unsplash.photos.getRandom({
       query,
+      orientation: "landscape",
     })) as ApiResponse<Random>;
     return background.response?.urls.regular;
   } catch (err: any) {
