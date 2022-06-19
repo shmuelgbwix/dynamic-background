@@ -1,0 +1,24 @@
+{
+  "name": "dynamic-background",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shmuelgbwix/dynamic-background.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shmuelgbwix/dynamic-background/issues"
+  },
+  "homepage": "https://github.com/shmuelgbwix/dynamic-background#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
