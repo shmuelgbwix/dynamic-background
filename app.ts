@@ -7,12 +7,15 @@ import { unsplash } from "./api/unsplash";
 import { Site2backgrounds } from "./types";
 const app = express();
 
-const site2backgrounds: Site2backgrounds = {};
+let site2backgrounds: Site2backgrounds = {};
 
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
+
+setInterval(() => {
+  site2backgrounds = {};
+  console.log({ log: "Interval for clean site2backgrounds has fired off" });
+}, 1000 * 60 * 60 * 24);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
