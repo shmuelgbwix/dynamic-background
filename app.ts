@@ -6,20 +6,20 @@ import { unsplash } from "./api/unsplash";
 import { OrientationReq, RandomBackgroundReq, Site2backgrounds } from "./types";
 import cors from "cors";
 
-const app = express();
-
-let site2backgrounds: Site2backgrounds = {};
-
 const PORT = process.env.PORT || 3000;
+
+const app = express();
 app.use(cors());
 app.use(express.json());
+
+let site2backgrounds: Site2backgrounds = {};
 
 setInterval(() => {
   site2backgrounds = {};
   console.log({ log: "Interval for clean site2backgrounds has fired off" });
 }, 1000 * 60 * 60 * 24);
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Hello World");
 });
 
@@ -27,11 +27,11 @@ app.get(
   "/background",
   async (req: Request<any, any, any, RandomBackgroundReq>, res) => {
     let { msId, query, orientation } = req.query;
-    if (site2backgrounds[msId]) {
-      return res.send(site2backgrounds[msId]);
+    if (site2backgrounds[msId]?.[query]) {
+      return res.send(site2backgrounds[msId][query]);
     }
     const background = await getBackground(query, orientation);
-    site2backgrounds[msId] = background!;
+    site2backgrounds[msId][query] = background!;
     return res.send(background);
   }
 );
