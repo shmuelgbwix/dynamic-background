@@ -47,7 +47,7 @@ export const getBackground = async (
     query,
     orientation,
   })) as ApiResponse<Random>;
-  return background.response?.urls.raw;
+  return background.response?.urls.regular;
 };
 
 app.listen(PORT, () => {
