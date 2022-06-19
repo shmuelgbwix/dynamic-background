@@ -1,8 +1,10 @@
 import { createApi } from "unsplash-js";
 import * as nodeFetch from "node-fetch";
 
+console.log({ key: process.env.UNSPLASH_KEY });
+
 export const unsplash = createApi({
-  accessKey: "psmv0JBHZ9zxhuVCGqMjVaHd333RkZGk02eEbGmyJ0Y",
+  accessKey: process.env.UNSPLASH_KEY,
   // @ts-ignore
   fetch: nodeFetch,
 });

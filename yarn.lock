@@ -461,6 +461,11 @@ dot-prop@^5.2.0:
   dependencies:
     is-obj "^2.0.0"
 
+dotenv@^16.0.1:
+  version "16.0.1"
+  resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/dotenv/-/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
+  integrity sha1-j4+dlIdsNdrJiYdqXTqComf9zh0=
+
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://repo.dev.wixpress.com/artifactory/api/npm/npm-repos/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"

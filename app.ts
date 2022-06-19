@@ -1,3 +1,4 @@
+import "dotenv/config";
 import bodyParser from "body-parser";
 import express, { Request } from "express";
 import { ApiResponse } from "unsplash-js/dist/helpers/response";

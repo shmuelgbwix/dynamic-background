@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.ts"
+    "start": "node dist/app.js",
+    "build": "tsc",
+    "dev": "nodemon app.ts"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
   "homepage": "https://github.com/shmuelgbwix/dynamic-background#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "node-fetch": "^2.6.1",
     "unsplash-js": "^7.0.15"
