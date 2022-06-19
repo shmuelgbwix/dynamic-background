@@ -43,11 +43,16 @@ export const getBackground = async (
   query: string,
   orientation: OrientationReq = "landscape"
 ) => {
-  const background = (await unsplash.photos.getRandom({
-    query,
-    orientation,
-  })) as ApiResponse<Random>;
-  return background.response?.urls.regular;
+  try {
+    console.log({ orientation });
+
+    const background = (await unsplash.photos.getRandom({
+      query,
+    })) as ApiResponse<Random>;
+    return background.response?.urls.regular;
+  } catch (err: any) {
+    console.log({ err });
+  }
 };
 
 app.listen(PORT, () => {
