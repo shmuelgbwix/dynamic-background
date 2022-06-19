@@ -31,6 +31,9 @@ app.get(
       return res.send(site2backgrounds[msId][query]);
     }
     const background = await getBackground(query, orientation);
+    if (!site2backgrounds[msId]) {
+      site2backgrounds[msId] = {};
+    }
     site2backgrounds[msId][query] = background!;
     return res.send(background);
   }
