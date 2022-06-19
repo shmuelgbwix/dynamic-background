@@ -20,24 +20,20 @@ app.get("/", (req, res) => {
 
 app.get(
   "/background",
-  async (
-    req: Request<any, any, any, { msId: string; topics: string }>,
-    res
-  ) => {
-    const { msId, topics } = req.query;
+  async (req: Request<any, any, any, { msId: string; query: string }>, res) => {
+    const { msId, query } = req.query;
     if (site2backgrounds[msId]) {
       return res.send(site2backgrounds[msId]);
     }
-    const topicIds = topics.split(",");
-    const background = await getBackground(topicIds);
+    const background = await getBackground(query);
     site2backgrounds[msId] = background!;
     return res.send(background);
   }
 );
 
-export const getBackground = async (topicIds: string[]) => {
+export const getBackground = async (query: string) => {
   const background = (await unsplash.photos.getRandom({
-    topicIds,
+    query,
   })) as ApiResponse<Random>;
   return background.response?.urls.raw;
 };
